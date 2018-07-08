@@ -1,0 +1,91 @@
+MongoDB installation Steps:
+url : https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04
+
+step 1 :
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+
+step 2 :
+echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+step 3 :
+sudo apt-get update
+
+step 4:
+sudo apt-get install -y mongodb-org
+
+to use mongodb , we need to use mongoose in node just by adding it to package.json of our project & running npm install.
+
+To start with
+> sudo service mongod start
+
+once it is started , use > mongo 
+
+
+
+Mongodb steps:
+ref - https://beginnersbook.com/2017/09/mongodb-create-database/
+
+create DB , by just saying use and DB NAme:
+>use local_nodejs_app
+
+
+
+MongoDB is a cross-platform, document oriented database that provides, high performance, high availability, and easy scalability. MongoDB works on concept of collection and document.
+Database
+
+Database is a physical container for collections. Each database gets its own set of files on the file system. A single MongoDB server typically has multiple databases.
+Collection
+
+Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table. A collection exists within a single database. Collections do not enforce a schema. Documents within a collection can have different fields. Typically, all documents in a collection are of similar or related purpose.
+
+
+Sample Document
+
+{
+   _id: ObjectId(7df78ad8902c)
+   title: 'MongoDB Overview', 
+   description: 'MongoDB is no sql database',
+   by: 'tutorials point',
+   url: 'http://www.tutorialspoint.com',
+   tags: ['mongodb', 'database', 'NoSQL'],
+   likes: 100, 
+   comments: [	
+      {
+         user:'user1',
+         message: 'My first comment',
+         dateCreated: new Date(2011,1,20,2,15),
+         like: 0 
+      },
+      {
+         user:'user2',
+         message: 'My second comments',
+         dateCreated: new Date(2011,1,25,7,45),
+         like: 5
+      }
+   ]
+}
+
+_id is a 12 bytes hexadecimal number which assures the uniqueness of every document. You can provide _id while inserting the document. If you don’t provide then MongoDB provides a unique id for every document. These 12 bytes first 4 bytes for the current timestamp, next 3 bytes for machine id, next 2 bytes for process id of MongoDB server and remaining 3 bytes are simple incremental VALUE.
+
+Advantages of MongoDB over RDBMS
+
+    Schema less − MongoDB is a document database in which one collection holds different documents. Number of fields, content and size of the    document can differ from one document to another.
+
+    Structure of a single object is clear.
+
+    No complex joins.
+
+    Deep query-ability. MongoDB supports dynamic queries on documents using a document-based query language that's nearly as powerful as SQL.
+
+    Tuning.
+
+    Ease of scale-out − MongoDB is easy to scale.
+
+    Conversion/mapping of application objects to database objects not needed.
+
+    Uses internal memory for storing the (windowed) working set, enabling faster access of data.
+
+
+
+
+
